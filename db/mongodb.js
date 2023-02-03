@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import "dotenv";
-mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", true);
 
 function connectToMongoDb() {
   mongoose
