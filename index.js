@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 // const connectToMongoDb = require("./db/mongodb");
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/users.js";
+// import CONNECTION_URL from "./db/mongodb"
 
 const app = express();
 dotenv.config();
@@ -22,7 +23,7 @@ app.use("/users", userRoutes);
 
 // https://www.mongodb.com/cloud/atlas cloud mongodb
 // this will be fixed/encrypted before deployment USING DOTENV
-// const CONNECTION_URL = "";
+//const CONNECTION_URL = "";
 // when deploying to heroku, process.env.PORT will be provided by heroku
 // setting default port to 3001 instead of 5000 since Apple Airplay is listening port 5000
 // https://developer.apple.com/forums/thread/682332
