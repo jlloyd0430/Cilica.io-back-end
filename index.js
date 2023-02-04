@@ -49,9 +49,18 @@ app.use("/users", userRoutes);
 const PORT = process.env.PORT || 3001;
 
 // https://stackoverflow.com/questions/55558402/what-is-the-meaning-of-bodyparser-urlencoded-extended-true-and-bodypar
-mongoose
-  .connect(process.env.CONNECTION_URL)
-  .then(() =>
-    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
-  )
-  .catch((error) => console.log(error));
+
+app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+
+function connectToMongoDb() {
+  mongoose
+    .connect(process.env.MONGODB_URI)
+    .then(() => {
+      console.log("MongoDB Connected");
+    })
+    .catch((error) => {
+      console.log(`DB connection failed: ${error}`);
+    });
+}
+
+connectToMongoDb();
